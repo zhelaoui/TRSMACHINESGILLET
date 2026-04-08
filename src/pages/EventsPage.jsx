@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import PageHeader from '../components/common/PageHeader';
+import SectionCard from '../components/common/SectionCard';
+import StatusBadge from '../components/common/StatusBadge';
 import mockEvents from '../data/mockEvents';
 import { formatMinutesToHours } from '../utils/formatters';
 
@@ -20,9 +22,14 @@ function EventsPage() {
   }, [filter]);
 
   return (
-    <div>
-      <PageHeader title="Historique des événements" subtitle="Vue front fictive des événements machine." />
-      <section className="panel">
+    <div className="page-stack">
+      <PageHeader
+        meta="Journal machine"
+        title="Historique des événements"
+        subtitle="Vue front fictive des événements classés par type et chronologie."
+      />
+
+      <SectionCard title="Filtres visuels" subtitle="Affichez un type d'événement spécifique.">
         <div className="filter-row">
           {filters.map((item) => (
             <button
@@ -35,6 +42,9 @@ function EventsPage() {
             </button>
           ))}
         </div>
+      </SectionCard>
+
+      <SectionCard title="Chronologie détaillée" subtitle={`${filteredEvents.length} événement(s) visible(s).`}>
         <table className="event-table">
           <thead>
             <tr>
@@ -48,8 +58,11 @@ function EventsPage() {
           <tbody>
             {filteredEvents.map((event) => (
               <tr key={event.id}>
-                <td>{event.type}</td>
-                <td>{event.label}</td>
+                <td><StatusBadge status={event.category} subtle /></td>
+                <td>
+                  <strong>{event.label}</strong>
+                  <p>{event.detail}</p>
+                </td>
                 <td>{event.start}</td>
                 <td>{event.end}</td>
                 <td>{formatMinutesToHours(event.durationMinutes)}</td>
@@ -57,7 +70,7 @@ function EventsPage() {
             ))}
           </tbody>
         </table>
-      </section>
+      </SectionCard>
     </div>
   );
 }

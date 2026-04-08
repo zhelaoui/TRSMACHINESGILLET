@@ -6,8 +6,8 @@ Maquette front-end V1 de l'application de suivi TRS simplifié (basé sur le tem
 
 Cette version est **strictement front-end statique** pour visualiser :
 - les pages principales,
-- la navigation,
-- une première structure projet maintenable,
+- une navigation métier,
+- une interface atelier plus professionnelle,
 - des données métier mockées pour une seule machine.
 
 Aucun backend, aucun PHP et aucune base MySQL ne sont implémentés dans cette étape.
@@ -16,7 +16,16 @@ Aucun backend, aucun PHP et aucune base MySQL ne sont implémentés dans cette �
 
 - Vite + React + JavaScript
 - React Router
-- CSS simple (architecture modulaire par fichier)
+- CSS modulaire (layout + composants + variables)
+
+## Données mockées V1
+
+La V1 reste volontairement simple et front-only, avec une machine unique :
+- **Machine :** CN Gillet 01
+- **Groupe :** Décolletage
+- **Horaires :** 08:00–12:00 / 13:00–17:00
+
+Les KPI, événements et créneaux planning sont simulés pour préparer les futures itérations (backend, calculs avancés, multi-machines) sans les implémenter.
 
 ## Démarrage local
 

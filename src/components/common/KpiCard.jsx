@@ -1,6 +1,6 @@
-function KpiCard({ label, value, unit, tone = 'neutral' }) {
+function KpiCard({ label, value, unit, tone = 'neutral', emphasis = false }) {
   return (
-    <article className={`kpi-card ${tone}`}>
+    <article className={`kpi-card ${tone} ${emphasis ? 'emphasis' : ''}`.trim()}>
       <p className="kpi-label">{label}</p>
       <p className="kpi-value">
         {value}

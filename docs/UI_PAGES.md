@@ -5,23 +5,31 @@
 - Liens rapides vers toutes les sections principales.
 
 ## Tableau de bord
-- Contexte machine (nom, groupe, statut).
-- Cartes KPI (TRS, temps d'ouverture, requis, fonctionnement, théorique, utile).
-- Zone événements du jour.
-- Aperçu planning du jour.
+- En-tête opérationnel (machine, groupe, contexte de pilotage).
+- Bloc principal TRS du jour avec composantes disponibilité / performance / qualité.
+- Section “État machine actuel” (affaire active, programme, horaires, heure de mise à jour).
+- Section “Indicateurs temps” (ouverture, requis, fonctionnement, théorique, utile).
+- Section “Événements du jour” enrichie avec badges et détails.
+- Section “Aperçu planning du jour” en timeline métier.
 
 ## Planning
 - Vue agenda de la journée pour une machine.
-- Affichage des affaires planifiées : numéro, plage horaire, durée planifiée, temps d'usinage théorique.
+- Timeline visuelle plus lisible avec créneaux horaires.
+- Distinction visuelle des types : affaire planifiée, maintenance, non-conformité, arrêt.
+- Affichage de : numéro d’affaire, début, fin, durée planifiée, usinage théorique.
 
 ## Machine
-- Fiche machine détaillée : nom, groupe, horaires, plages de travail.
-- Rappel d'indicateurs synthétiques.
+- Fiche machine structurée (nom, groupe, horaires, plages, zone, supervision).
+- Bloc statut machine.
+- Résumé d’indicateurs TRS et temps.
 
 ## Événements
-- Historique d'événements (marche, arrêt, maintenance, non-conformité).
-- Filtres visuels simples pour trier les types.
+- Historique chronologique avec filtres visuels.
+- Badges de statut pour marche / arrêt / maintenance / non-conformité.
+- Tableau enrichi avec description, détail, durée.
 
 ## Paramètres
-- Formulaire factice de paramétrage front.
-- Visualisation des options sans sauvegarde réelle.
+- Page de paramétrage fictive organisée par sections.
+- Section identité machine (nom, groupe, horaires, plages).
+- Section supervision simulée (modes d’affichage, alertes, statuts).
+- Aucun enregistrement serveur : front-only mocké.

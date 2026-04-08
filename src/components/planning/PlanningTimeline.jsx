@@ -1,25 +1,29 @@
 import { formatMinutesToHours } from '../../utils/formatters';
+import SectionCard from '../common/SectionCard';
+import StatusBadge from '../common/StatusBadge';
 
-function PlanningTimeline({ items }) {
+function PlanningTimeline({ items, title = 'Agenda machine (jour)', subtitle = 'Créneaux planifiés pour la journée.' }) {
   return (
-    <section className="panel">
-      <h3>Agenda machine (jour)</h3>
+    <SectionCard title={title} subtitle={subtitle}>
       <div className="timeline">
         {items.map((item) => (
-          <article className="timeline-item" key={item.businessId}>
-            <div className="timeline-head">
-              <strong>{item.businessId}</strong>
-              <span>{item.start} → {item.end}</span>
-            </div>
-            <p>{item.label}</p>
-            <div className="timeline-meta">
-              <span>Durée planifiée : {formatMinutesToHours(item.plannedMinutes)}</span>
-              <span>Usinage théorique : {formatMinutesToHours(item.theoreticalMachiningMinutes)}</span>
+          <article className={`timeline-item ${item.type || 'job'}`} key={`${item.businessId}-${item.start}`}>
+            <div className="timeline-time">{item.start} → {item.end}</div>
+            <div className="timeline-content">
+              <div className="timeline-head">
+                <strong>{item.businessId}</strong>
+                <StatusBadge status={item.type || 'job'} subtle />
+              </div>
+              <p>{item.label}</p>
+              <div className="timeline-meta">
+                <span>Durée planifiée : {formatMinutesToHours(item.plannedMinutes)}</span>
+                <span>Usinage théorique : {formatMinutesToHours(item.theoreticalMachiningMinutes)}</span>
+              </div>
             </div>
           </article>
         ))}
       </div>
-    </section>
+    </SectionCard>
   );
 }
 

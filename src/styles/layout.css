@@ -22,11 +22,36 @@
 .nav-link:hover { background: #1e293b; color: #fff; }
 
 .app-content { padding: 1.5rem; }
-.page-header { margin-bottom: 1.25rem; }
-.page-header p { color: var(--muted); margin-top: 0.35rem; }
+.page-header {
+  margin-bottom: 0.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem 1.1rem;
+}
+
+.page-header-meta {
+  color: var(--primary-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.page-header h2 {
+  font-size: 1.35rem;
+}
+
+.page-header p {
+  color: var(--muted);
+  margin-top: 0.35rem;
+}
+
 .two-columns {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 

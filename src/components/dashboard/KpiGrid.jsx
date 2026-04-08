@@ -1,10 +1,10 @@
 import KpiCard from '../common/KpiCard';
 
-function KpiGrid({ kpis }) {
+function KpiGrid({ kpis, highlightFirst = false, className = '' }) {
   return (
-    <section className="kpi-grid">
-      {kpis.map((kpi) => (
-        <KpiCard key={kpi.label} {...kpi} />
+    <section className={`kpi-grid ${className}`.trim()}>
+      {kpis.map((kpi, index) => (
+        <KpiCard key={kpi.key || kpi.label} {...kpi} emphasis={highlightFirst && index === 0} />
       ))}
     </section>
   );
